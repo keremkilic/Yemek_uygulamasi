@@ -1,0 +1,95 @@
+tablolar
+yemekler = listelenecek
+sepet_yemek
+
+Dio kütüphanesi
+bloc pattern
+
+------------------------------------------------------------------------
+Tüm yemekleri getir
+------------------------------------------------------------------------
+http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php
+
+yemek_id : int
+yemek_adi : String
+yemek_resim_adi : String
+yemek_fiyat : int
+
+---------------------------------------------------
+GET yöntemi ile olduğu için bir şey gönderilmeyecek -- TAMAM
+---------------------------------------------------
+
+------------------------------------------------------------------------
+Sepetteki yemekleri getir
+------------------------------------------------------------------------
+http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php
+
+sepet_yemek_id : int
+yemek_adi : String
+yemek_resim_adi : String
+yemek_fiyat : int
+yemek_siparis_adet : int
+kullanici_adi : String
+
+---------------------------------------------------
+POST yöntemi ile gönderilecek veri değerleri
+---------------------------------------------------
+kullanici_adi : String
+
+
+------------------------------------------------------------------------
+Sepete Yemek Ekleme
+------------------------------------------------------------------------
+http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php
+
+sepet_yemek_id : int
+yemek_adi : String
+yemek_resim_adi : String
+yemek_fiyat : int
+yemek_siparis_adet : int
+kullanici_adi : String
+
+---------------------------------------------------
+POST yöntemi ile gönderilecek veri değerleri
+---------------------------------------------------
+yemek_adi : String
+yemek_resim_adi : String
+yemek_fiyat : int
+yemek_siparis_adet : int
+kullanici_adi : String
+
+------------------------------------------------------------------------
+Sepetten Yemek Silme
+------------------------------------------------------------------------
+http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php
+
+sepet_yemek_id : int
+yemek_adi : String
+yemek_resim_adi : String
+yemek_fiyat : int
+yemek_siparis_adet : int
+kullanici_adi : String
+
+---------------------------------------------------
+POST yöntemi ile gönderilecek veri değerleri
+---------------------------------------------------
+sepet_yemek_id : int
+kullanici_adi : String
+
+------------------------------------------------------------------------
+
+Yemek resimlerini alma
+http://kasimadalan.pe.hu/yemekler/resimler/ayran.png
+Image.network("http://kasimadalan.pe.hu/yemekler/resimler/${widget.yemek_resim_adi}")
+
+Not: Resimlerin son kısmında dogru yemek adı ve uzantısı girilirse istenilen resim alınabilir.
+
+------------------------------------------------------------------------
+
+--------------
+Ek özellikler
+--------------
+favori : sqlite lokal veritabanı ile yapılabilir.
+List üzeri filtreleme yaparak arama yapılabilir.
+fiyat artan ve azalan diye 2 buton koyulabilir.
+LottieFiles sitesi üzerinden animasyon alarak uygulamaya ekleyebilirsin.
