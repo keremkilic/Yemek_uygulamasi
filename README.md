@@ -1,4 +1,4 @@
-# bitirme_projesi
+# Yemek Uygulaması
 
 A new Flutter project.
 
