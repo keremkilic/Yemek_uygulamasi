@@ -76,7 +76,7 @@ class _DetaySayfaState extends State<DetaySayfa> {
                     Icons.indeterminate_check_box_rounded,
                     size: 40,
                   ),
-                  color: Colors.deepPurple,
+                  color: const Color(0XFF222831),
                 ),
                 Padding(
                   padding:
@@ -99,7 +99,7 @@ class _DetaySayfaState extends State<DetaySayfa> {
                       Icons.add_box,
                       size: 40,
                     ),
-                    color: Colors.deepPurple),
+                    color: const Color(0XFF222831)),
               ],
             ),
             SingleChildScrollView(
@@ -113,12 +113,15 @@ class _DetaySayfaState extends State<DetaySayfa> {
                 ],
               ),
             ),
-            Text(
-              "Toplam Ücret : $ucret ₺ ",
-              style: const TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w600,
-                  color: Color(0xFFCB2020)),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                "Toplam Ücret : $ucret ₺ ",
+                style: const TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFFCB2020)),
+              ),
             ),
             ElevatedButton(
               onPressed: () {
@@ -140,11 +143,11 @@ class _DetaySayfaState extends State<DetaySayfa> {
               },
               child: const Text(
                 "Sepete Ekle",
-                style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20),
+                style: TextStyle(color: const Color(0XFF222831), fontSize: 20),
               ),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(250, 50),
-                backgroundColor: Colors.deepPurple,
+                minimumSize: const Size(250, 50),
+                backgroundColor: const Color(0XFFFFD369),
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(5),
@@ -164,13 +167,13 @@ class _DetaySayfaState extends State<DetaySayfa> {
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Colors.grey.shade400,
+        color: const Color(0XFF6B6E74).withOpacity(0.35),
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 8.0, right: 8.0),
         child: Text(
           title,
-          style: const TextStyle(color: Colors.black),
+          style: const TextStyle(color: Color(0XFF222831)),
           textAlign: TextAlign.center,
         ),
       ),

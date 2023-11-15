@@ -1,9 +1,6 @@
-import 'package:bitirme_projesi/data/entity/sepet_urunler.dart';
 import 'package:bitirme_projesi/data/entity/urunler.dart';
 import 'package:bitirme_projesi/ui/cubit/anasayfa_cubit.dart';
-import 'package:bitirme_projesi/ui/cubit/sepetsayfa_cubit.dart';
 import 'package:bitirme_projesi/ui/views/detay.dart';
-import 'package:bitirme_projesi/ui/views/sepet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +15,6 @@ class _AnaSayfaState extends State<AnaSayfa> {
   String _value = "Ev Adresi";
   TextEditingController controller = TextEditingController();
   int currentIndex = 0;
-
   bool aramaYapiliyorMu = false;
 
   @override
@@ -31,12 +27,12 @@ class _AnaSayfaState extends State<AnaSayfa> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
+      backgroundColor: const Color(0xFFEEEEEE),
       appBar: AppBar(
-        //leading: Container(),
         title: DecoratedBox(
           decoration: BoxDecoration(
-            color: Colors.deepPurple.withOpacity(0.35),
-            border: Border.all(color: Colors.deepPurple, width: 2),
+            color: const Color(0XFFFFD369),
+            border: Border.all(color: const Color(0XFF6B6E74), width: 1),
             borderRadius: BorderRadius.circular(50),
           ),
           child: Padding(
@@ -44,67 +40,9 @@ class _AnaSayfaState extends State<AnaSayfa> {
             child: DropdownButton(
               value: _value,
               borderRadius: BorderRadius.circular(12.0),
-              items: const <DropdownMenuItem<String>>[
-                DropdownMenuItem(
-                  value: "Ev Adresi",
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: Colors.deepPurple,
-                      ),
-                      SizedBox(width: 5),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Teslim Adresi",
-                            style: TextStyle(fontSize: 10, color: Colors.grey),
-                          ),
-                          Text(
-                            "Ev Adresi",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: "Is Adresi",
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: Colors.deepPurple,
-                      ),
-                      SizedBox(width: 5),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Teslim Adresi",
-                            style: TextStyle(fontSize: 10, color: Colors.grey),
-                          ),
-                          Text(
-                            "Is Adresi",
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
+              items: <DropdownMenuItem<String>>[
+                buildDropdown("Ev Adresi"),
+                buildDropdown("İş Adresi"),
               ],
               onChanged: (value) {
                 setState(() {
@@ -115,7 +53,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
                 padding: EdgeInsets.only(left: 20),
                 child: Icon(
                   Icons.keyboard_arrow_down_outlined,
-                  color: Colors.deepPurple,
+                  color: Color(0XFF222831),
                 ),
               ),
               iconEnabledColor: Colors.white, //Icon color
@@ -124,7 +62,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
                   color: Colors.white, //Font color
                   fontSize: 20 //font size on dropdown button
                   ),
-              dropdownColor: Colors.deepPurple.shade200,
+              dropdownColor: const Color(0XFFFFD369),
               underline: Container(), //remove underline
               isExpanded: true,
             ),
@@ -133,11 +71,11 @@ class _AnaSayfaState extends State<AnaSayfa> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.messenger_outline_outlined, size: 22),
+            icon: const Icon(Icons.messenger_outline_outlined, color: Color(0XFF222831), size: 24),
           ),
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.airplane_ticket_outlined, size: 22),
+            icon: const Icon(Icons.airplane_ticket_outlined, color: Color(0XFF222831), size: 24),
           ),
         ],
       ),
@@ -163,7 +101,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
                             ));
                       },
                       child: Card(
-                        color: Colors.white70,
+                        color: const Color(0XFFFFD369),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -189,7 +127,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
                                         Icons.add_box,
                                         size: 40,
                                       ),
-                                      color: Colors.deepPurple),
+                                      color: const Color(0XFF222831)),
                                 ],
                               ),
                             )
@@ -217,7 +155,7 @@ class _AnaSayfaState extends State<AnaSayfa> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      */
+
         bottomNavigationBar: BottomAppBar(
           color: Colors.deepPurple,
           shape: const CircularNotchedRectangle(),
@@ -246,6 +184,40 @@ class _AnaSayfaState extends State<AnaSayfa> {
                 */
             ],
           )),
+      */
+    );
+  }
+
+  DropdownMenuItem<String> buildDropdown(String adresTip) {
+    return DropdownMenuItem(
+      value: adresTip, //"Is Adresi"
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const Icon(
+            Icons.location_on,
+            color: Color(0XFF222831),
+          ),
+          const SizedBox(width: 5),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Teslim Adresi",
+                style: TextStyle(fontSize: 10, color: Color(0XFF6B6E74)),
+              ),
+              Text(
+                adresTip,
+                style: const TextStyle(
+                    fontSize: 14,
+                    color: Color(0XFF222831),
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

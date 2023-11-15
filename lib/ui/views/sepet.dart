@@ -210,7 +210,7 @@ class _SepetSayfaState extends State<SepetSayfa> {
             showDialog(
               context: context,
               builder: (context) {
-                return AlertDialog(
+                return const AlertDialog(
                   icon: Icon(
                     Icons.track_changes_outlined,
                     size: 32,
@@ -223,10 +223,10 @@ class _SepetSayfaState extends State<SepetSayfa> {
             );
           },
           style: ElevatedButton.styleFrom(
-              minimumSize: Size(250, 50), backgroundColor: Colors.deepPurple),
+              minimumSize: const Size(250, 50), backgroundColor: const Color(0XFFFFD369)),
           child: const Text(
             "Sepeti Onayla",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Color(0XFF222831), fontSize: 20),
           )),
     );
   }

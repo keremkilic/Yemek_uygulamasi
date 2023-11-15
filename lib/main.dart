@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:bitirme_projesi/ui/cubit/anasayfa_cubit.dart';
 import 'package:bitirme_projesi/ui/cubit/detaysayfa_cubit.dart';
 import 'package:bitirme_projesi/ui/cubit/sepetsayfa_cubit.dart';
@@ -27,7 +28,14 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const AnaSayfa(),
+        home: AnimatedSplashScreen(
+          splash: Image.asset("assets/images/splash_image.png"),
+          nextScreen: const AnaSayfa(),
+          splashTransition: SplashTransition.scaleTransition,
+          animationDuration: const Duration(milliseconds: 1500),
+          duration: 2500,
+          splashIconSize: 250,
+        ),
       ),
     );
   }
