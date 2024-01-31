@@ -1,6 +1,7 @@
-# Yemek Uygulaması
+# Sipariş Uygulaması
 
-A new Flutter project.
+Bu uygulamada işletmede müşteri barkod okutarak siparişini verecek ve ödeme işlemini yapmasına olanak sağlayacak.
+Yapılan ödeme ile kasa'ya bildirim gidecek ve ödeme işlemi doğruysa onay verecek.
 
 ## Getting Started
 
